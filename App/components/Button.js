@@ -1,15 +1,12 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet, Text } from 'react-native';
-
-import colors from '../constants/colors';
+import getColor from '../helpers/getColor';
 
 const styles = StyleSheet.create({
   button: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.grey,
-    borderColor: colors.yellow,
     borderWidth: 2, 
     borderRadius: 5,
     paddingVertical: 10,
@@ -19,14 +16,13 @@ const styles = StyleSheet.create({
   buttonText: {
     fontWeight: 'bold',
     fontSize: 16,
-    color: colors.yellow,
   },
 });
 
-const Button = ({ onPress, text }) => {
+const Button = ({ onPress, text, colorborder, colorback, colortext, palette }) => {
   return (
-    <TouchableOpacity onPress={onPress} style={styles.button}>
-      <Text style={styles.buttonText}>{text}</Text>
+    <TouchableOpacity onPress={onPress} style={[styles.button, {backgroundColor: getColor(palette, colorback), borderColor: getColor(palette, colorborder)}]}>
+      <Text style={[styles.buttonText, {color: getColor(palette, colortext)}]}>{text}</Text>
     </TouchableOpacity>
   );
 };

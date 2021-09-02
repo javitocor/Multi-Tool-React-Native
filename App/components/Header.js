@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { TouchableOpacity} from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons';
-import colors from '../constants/colors';
+import * as colors from '../constants/colors';
 
 const screen = Dimensions.get('window');
 
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     justifyContent:'space-between',
     paddingTop: 10,
     paddingHorizontal: 15,
-    backgroundColor: colors.grey,
+    backgroundColor: colors.colors.grey,
   },
   button:{ 
     alignItems: 'flex-start',
@@ -38,10 +38,10 @@ function Header({navigation}) {
   return (    
     <SafeAreaView style={styles.header}>
       <TouchableOpacity onPress={() => navigation.openDrawer()} style={styles.button}>
-        <Entypo name="list" size={32} color={colors.white} />        
+        <Entypo name="list" size={32} color={colors.colors.white} />        
       </TouchableOpacity>
       <View style={styles.config}>
-        <Entypo name="cog" size={30} color={colors.white} />        
+        <Entypo name="cog" size={30} color={colors.colors.white} />        
       </View>
     </SafeAreaView>
   );

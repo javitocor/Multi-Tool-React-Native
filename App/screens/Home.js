@@ -7,7 +7,7 @@ import {
   Image,
 } from 'react-native';
 import Button from '../components/Button';
-import colors from '../constants/colors';
+import * as colors from '../constants/colors';
 
 const screen = Dimensions.get('window');
 
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,   
     height: screen.height * 1,
-    backgroundColor: colors.grey,
+    backgroundColor: colors.colors.grey,
   },
   imageContainer: {
     alignItems: "center",
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
 const Home = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={colors.grey} />      
+      <StatusBar barStyle="light-content" backgroundColor={colors.colors.grey} />      
       <View style={styles.imageContainer}>
         <Image 
           source={require('../assets/images/logo.png')}
@@ -45,8 +45,8 @@ const Home = ({navigation}) => {
         />
       </View>
       <View style={styles.buttonsContainer}>
-        <Button onPress={()=>navigation.navigate("Multimedia", {screen: 'Music'})} text='Multimedia' />
-        <Button onPress={()=>navigation.navigate("Quotes", {screen: "Got"})} text='Quotes' />
+        <Button onPress={()=>navigation.navigate("Multimedia", {screen: 'Music'})} text='Multimedia' colorborder='white' colorback='grey' colortext='white' palette='colors' />
+        <Button onPress={()=>navigation.navigate("Quotes", {screen: "Got"})} text='Quotes' colorborder='white' colorback='grey' colortext='white' palette='colors' />
       </View>
     </View>
   );
