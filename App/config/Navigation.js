@@ -14,6 +14,10 @@ import GotQuotes from '../screens/GotQuotes';
 import BreakingBadQuotes from '../screens/BreakingBadQuotes';
 import ChuckNorrisQuotes from '../screens/ChuckNorrisQuotes';
 
+import CustomDrawerContent from '../components/CustomDrawerContent';
+import Header from '../components/Header';
+import colors from '../constants/colors';
+
 const MoviesStack = createStackNavigator();
 
 function MoviesStackScreen() {
@@ -51,7 +55,7 @@ const TabTop = createMaterialTopTabNavigator();
 
 function TabTopNavigation() {
   return (
-    <TabTop.Navigator>
+    <TabTop.Navigator screenOptions={{ initialRouteName: "Got"}}>
       <TabTop.Screen name="Got" component={GotQuotes} />
       <TabTop.Screen name="Bad" component={BreakingBadQuotes} />
       <TabTop.Screen name="Chuck" component={ChuckNorrisQuotes} />
@@ -63,7 +67,13 @@ const Drawer = createDrawerNavigator();
 
 function DrawerNavigation() {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      initialRouteName="Home"
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+      screenOptions={{ 
+        header: (props) => <Header {...props} />,
+      }}      
+    >
       <Drawer.Screen name="Home" component={Home} />
       <Drawer.Screen name="Multimedia" component={TabBottomNavigation}  />
       <Drawer.Screen name="Quotes" component={TabTopNavigation}  />
