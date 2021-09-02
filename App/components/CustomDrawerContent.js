@@ -145,10 +145,10 @@ function CustomDrawerContent(props) {
                     style={styles.items}
                   />
                   <DrawerItem
-                    label={({ focused }) => <Text style={{color: focused ? colors.colors.yellow : colors.colors.white}}>Movies</Text>}
-                    onPress={() => props.navigation.navigate('Multimedia', {screen: 'Movies'})}
+                    label={({ focused }) => <Text style={{color: focused ? colors.colors.yellow : colors.colors.white}}>TV Shows</Text>}
+                    onPress={() => props.navigation.navigate('Multimedia', {screen: 'TV Shows'})}
                     icon={({ focused }) =><Entypo name="video" size={20} color={focused ? colors.colors.yellow : colors.colors.white} />}                    
-                    focused={getScreen(props, 'Movies')}
+                    focused={getScreen(props, 'TV Shows')}
                     activeBackgroundColor={colors.colors.yellow2}
                     style={styles.items}
                   />

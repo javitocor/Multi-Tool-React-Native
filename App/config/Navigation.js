@@ -8,8 +8,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home';
 import Music from '../screens/Music';
 import MusicDetail from '../screens/MusicDetail';
-import Movies from '../screens/Movies';
-import MoviesDetail from '../screens/MoviesDetail';
+import Shows from '../screens/Shows';
+import ShowsDetail from '../screens/ShowsDetail';
 import GotQuotes from '../screens/GotQuotes';
 import BreakingBadQuotes from '../screens/BreakingBadQuotes';
 import ChuckNorrisQuotes from '../screens/ChuckNorrisQuotes';
@@ -18,14 +18,14 @@ import CustomDrawerContent from '../components/CustomDrawerContent';
 import Header from '../components/Header';
 import colors from '../constants/colors';
 
-const MoviesStack = createStackNavigator();
+const ShowsStack = createStackNavigator();
 
-function MoviesStackScreen() {
+function ShowsStackScreen() {
   return (
-    <MoviesStack.Navigator screenOptions={{ initialRouteName: "MoviesHome" }}>
-      <MoviesStack.Screen name="MoviesHome" component={Movies} />
-      <MoviesStack.Screen name="MoviesDetail" component={MoviesDetail} option={{unmountOnBlur: true }} />
-    </MoviesStack.Navigator>
+    <ShowsStack.Navigator screenOptions={{ initialRouteName: "TVShowsHome" }}>
+      <ShowsStack.Screen name="TVShowsHome" component={Shows} options={{ headerShown: false }} />
+      <ShowsStack.Screen name="ShowsDetail" component={ShowsDetail} option={{unmountOnBlur: true }} />
+    </ShowsStack.Navigator>
   );
 }
 
@@ -34,7 +34,7 @@ const MusicStack = createStackNavigator();
 function MusicStackScreen() {
   return (
     <MusicStack.Navigator screenOptions={{ initialRouteName: "MusicHome"}}>
-      <MusicStack.Screen name="MusicHome" component={Music} />
+      <MusicStack.Screen name="MusicHome" component={Music} options={{ headerShown: false }} />
       <MusicStack.Screen name="MusicDetail" component={MusicDetail} option={{unmountOnBlur: true }} />
     </MusicStack.Navigator>
   );
@@ -46,7 +46,7 @@ function TabBottomNavigation() {
   return (
     <TabBottom.Navigator>
       <TabBottom.Screen name="Music" component={MusicStackScreen} options={{ headerShown: false }} />
-      <TabBottom.Screen name="Movies" component={MoviesStackScreen} options={{ headerShown: false }} />
+      <TabBottom.Screen name="TV Shows" component={ShowsStackScreen} options={{ headerShown: false }} />
     </TabBottom.Navigator>
   );
 }

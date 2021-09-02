@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Music = (props) => {
+const Shows = (props) => {
   const {navigation} = props;
   const [value, setValue] = useState('');
   const [scrollEnabled, setScrollEnabled] = useState(false);
@@ -75,16 +75,16 @@ const Music = (props) => {
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={colors.black} />
-      <ImageBackground source={require('../assets/images/music.jpg')} resizeMode="cover" style={styles.bgimage}>
+      <ImageBackground source={require('../assets/images/movies.jpg')} resizeMode="cover" style={styles.bgimage}>
         <ScrollView scrollEnabled={scrollEnabled}>
           <View style={styles.content}> 
             <View style={styles.imageContainer}>
-              <Image source={require('../assets/images/musiclogo.png')} resizeMode='contain' style={styles.image} />
+              <Image source={require('../assets/images/showslogo.png')} resizeMode='contain' style={styles.image} />
             </View>                  
             <View style={styles.inputCont}>
               <TextInput 
                 style={styles.inputText}
-                placeholder="Type here the Artist name!"
+                placeholder="Type here the Movie name!"
                 placeholderTextColor={colors.white}
                 placeholderStyle={{ fontWeight: 'bold' }}
                 onChangeText={text => setValue(text)}
@@ -93,7 +93,7 @@ const Music = (props) => {
             <View style={styles.button}>
               <Button 
                 text="Search!"
-                onPress={() => navigation.navigate('MusicDetail', {value})}
+                onPress={() => navigation.navigate('ShowsDetail', {value})}
                 colorborder={colors.white}
                 colorback='transparent'
                 colortext={colors.white}
@@ -109,4 +109,4 @@ const Music = (props) => {
 };
 
 
-export default Music;
+export default Shows;

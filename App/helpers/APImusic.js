@@ -7,7 +7,7 @@ const musicCall = async (keyword)  => {
 
   try {
 
-    const response = await fetch(`${Url}${keyword}&limit=25`, { mode: 'cors'});
+    const response = await fetch(`${Url}${keyword}&limit=25&entity=album`, { mode: 'cors'});
     const data = await response.json();
 
     return data;
