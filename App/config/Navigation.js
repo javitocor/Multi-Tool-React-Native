@@ -14,9 +14,11 @@ import GotQuotes from '../screens/GotQuotes';
 import BreakingBadQuotes from '../screens/BreakingBadQuotes';
 import ChuckNorrisQuotes from '../screens/ChuckNorrisQuotes';
 
+import CustomBottomTabs from '../components/CustomBottomTabs';
+import CustomTopTabs from '../components/CustomTopTabs';
 import CustomDrawerContent from '../components/CustomDrawerContent';
 import Header from '../components/Header';
-import colors from '../constants/colors';
+import * as colors from '../constants/colors';
 
 const ShowsStack = createStackNavigator();
 
@@ -44,9 +46,40 @@ const TabBottom = createBottomTabNavigator();
 
 function TabBottomNavigation() {
   return (
-    <TabBottom.Navigator>
-      <TabBottom.Screen name="Music" component={MusicStackScreen} options={{ headerShown: false }} />
-      <TabBottom.Screen name="TV Shows" component={ShowsStackScreen} options={{ headerShown: false }} />
+    <TabBottom.Navigator 
+      screenOptions={({ route }) =>({        
+        initialRouteName: "Music",
+        tabBarActiveTintColor: (route.name === 'Music' ? colors.music.red : colors.shows.orange),
+        tabBarInactiveTintColor: colors.colors.white,
+        tabBarActiveBackgroundColor: (route.name === 'Music' ? colors.music.blue : colors.shows.blue),
+        tabBarInactiveBackgroundColor: colors.colors.grey,
+      })} 
+      tabBar={props => (
+        <CustomBottomTabs {...props} />
+      )}
+    >
+      <TabBottom.Screen 
+        name="Music" 
+        component={MusicStackScreen} 
+        options={{ headerShown: false }} 
+        listeners={({ navigation }) => ({
+          tabPress: (e) => {
+            e.preventDefault();
+            navigation.navigate('Music', {screen: 'MusicHome' });
+          },
+        })}
+      />
+      <TabBottom.Screen 
+        name="TV Shows" 
+        component={ShowsStackScreen} 
+        options={{ headerShown: false }} 
+        listeners={({ navigation }) => ({
+          tabPress: (e) => {
+            e.preventDefault();
+            navigation.navigate('TV Shows', {screen: 'TVShowsHome' });
+          },
+      })}
+      />
     </TabBottom.Navigator>
   );
 }
@@ -55,7 +88,7 @@ const TabTop = createMaterialTopTabNavigator();
 
 function TabTopNavigation() {
   return (
-    <TabTop.Navigator screenOptions={{ initialRouteName: "Got"}}>
+    <TabTop.Navigator screenOptions={{ initialRouteName: "Got"}} tabBar={props => <CustomTopTabs {...props} />}>
       <TabTop.Screen name="Got" component={GotQuotes} />
       <TabTop.Screen name="Bad" component={BreakingBadQuotes} />
       <TabTop.Screen name="Chuck" component={ChuckNorrisQuotes} />

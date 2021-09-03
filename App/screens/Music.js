@@ -9,7 +9,8 @@ import {
   ImageBackground,
   TextInput,
   ScrollView,
-  Image
+  Image,
+  Keyboard
 } from 'react-native';
 import Button from '../components/Button';
 import { KeyboardSpacer } from '../components/KeyboardSpacer';
@@ -70,7 +71,7 @@ const Music = (props) => {
   const {navigation} = props;
   const [value, setValue] = useState('');
   const [scrollEnabled, setScrollEnabled] = useState(false);
-  
+ 
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor={colors.colors.grey} />
