@@ -18,6 +18,7 @@ import musicCall from '../helpers/APImusic';
 import generateKey from '../helpers/generateKey';
 import MusicDisplay from '../components/MusicDisplay';
 import HeaderList from '../components/HeaderList';
+import valueToApi from '../helpers/valueToApi';
 
 const screen = Dimensions.get('window');
 
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
 });
 
 const MusicDetail = (props) => {
-  const { value } = props;
+  const { value } = props.route.params;
   const [data, setData] = useState([]);  
   const [isPending, setIsPending] = useState(true);
 
@@ -51,8 +52,8 @@ const MusicDetail = (props) => {
     (async () => {
       try {
        setIsPending(true);
-       const info = await musicCall(value);
-       setData(info)
+       const info = await musicCall(valueToApi(value, 'music'));
+       setData(info.results)
        setIsPending(false);
       } catch (error) {
         console.log(error)
@@ -67,7 +68,7 @@ const MusicDetail = (props) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={colors.black} />
+      <StatusBar barStyle="light-content" backgroundColor={colors.grey} />
       <ImageBackground source={require('../assets/images/music.jpg')} resizeMode="cover" style={styles.bgimage}>
         {isPending ? (
           <ActivityIndicator color={colors.grey} size="large" style={styles.waiting} />
@@ -77,8 +78,8 @@ const MusicDetail = (props) => {
                 data={data}
                 ListHeaderComponent={<HeaderList value={value} />}
                 showsVerticalScrollIndicator={false}
-                renderItem={({ item }) => (<MusicDisplay key={generateKey(item.artistId)} item={item} onButtonPress={()=>openLink(item.trackViewUrl)} />)}
-                keyExtractor={item =>generateKey(item.artistId)}
+                renderItem={({ item }) => (<MusicDisplay key={generateKey(item.collectionId)} item={item} onButtonPress={()=>openLink(item.collectionViewUrl)} />)}
+                keyExtractor={item =>generateKey(item.releaseDate)}
               />            
             </View>
           )}          

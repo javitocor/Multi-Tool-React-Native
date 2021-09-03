@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import Button from '../components/Button';
 import { KeyboardSpacer } from '../components/KeyboardSpacer';
-import { colors } from '../constants/colors';
+import * as colors from '../constants/colors';
 
 const screen = Dimensions.get('window');
 
@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
   },
   inputText:{
     width:'85%',
-    backgroundColor: colors.yellow,
+    backgroundColor: colors.shows.orange,
     borderColor: colors.blue,
     borderWidth: 2, 
     borderRadius: 5,
     height: '40%',
     padding: 8,
-    color: colors.blue,
+    color: colors.shows.white,
   },
   imageContainer: {
     alignItems: "center",
@@ -74,8 +74,8 @@ const Shows = (props) => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={colors.black} />
-      <ImageBackground source={require('../assets/images/movies.jpg')} resizeMode="cover" style={styles.bgimage}>
+      <StatusBar barStyle="light-content" backgroundColor={colors.colors.grey} />
+      <ImageBackground source={require('../assets/images/shows.jpg')} resizeMode="cover" style={styles.bgimage}>
         <ScrollView scrollEnabled={scrollEnabled}>
           <View style={styles.content}> 
             <View style={styles.imageContainer}>
@@ -84,8 +84,8 @@ const Shows = (props) => {
             <View style={styles.inputCont}>
               <TextInput 
                 style={styles.inputText}
-                placeholder="Type here the Movie name!"
-                placeholderTextColor={colors.white}
+                placeholder="Type here the TV Show name!"
+                placeholderTextColor={colors.shows.white}
                 placeholderStyle={{ fontWeight: 'bold' }}
                 onChangeText={text => setValue(text)}
               />
@@ -94,10 +94,10 @@ const Shows = (props) => {
               <Button 
                 text="Search!"
                 onPress={() => navigation.navigate('ShowsDetail', {value})}
-                colorborder={colors.white}
-                colorback='transparent'
-                colortext={colors.white}
-                palette='colors'
+                colorborder='orange'
+                colorback='blue'
+                colortext='orange'
+                palette='shows'
               />
             </View>
             <KeyboardSpacer onToggle={(visible) => setScrollEnabled(visible)} />

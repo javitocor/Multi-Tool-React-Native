@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import Button from '../components/Button';
 import { KeyboardSpacer } from '../components/KeyboardSpacer';
-import { colors } from '../constants/colors';
+import * as colors from '../constants/colors';
 
 const screen = Dimensions.get('window');
 
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     width:'100%',
     height: 150,
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 40,
   },
   button: {    
     alignItems: 'center',
@@ -48,13 +48,13 @@ const styles = StyleSheet.create({
   },
   inputText:{
     width:'85%',
-    backgroundColor: colors.yellow,
-    borderColor: colors.blue,
+    backgroundColor: colors.music.red,
+    borderColor: colors.music.blue,
     borderWidth: 2, 
     borderRadius: 5,
     height: '40%',
     padding: 8,
-    color: colors.blue,
+    color: colors.music.white,
   },
   imageContainer: {
     alignItems: "center",
@@ -70,11 +70,10 @@ const Music = (props) => {
   const {navigation} = props;
   const [value, setValue] = useState('');
   const [scrollEnabled, setScrollEnabled] = useState(false);
-
-
+  
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor={colors.black} />
+      <StatusBar barStyle="light-content" backgroundColor={colors.colors.grey} />
       <ImageBackground source={require('../assets/images/music.jpg')} resizeMode="cover" style={styles.bgimage}>
         <ScrollView scrollEnabled={scrollEnabled}>
           <View style={styles.content}> 
@@ -85,7 +84,7 @@ const Music = (props) => {
               <TextInput 
                 style={styles.inputText}
                 placeholder="Type here the Artist name!"
-                placeholderTextColor={colors.white}
+                placeholderTextColor={colors.music.white}
                 placeholderStyle={{ fontWeight: 'bold' }}
                 onChangeText={text => setValue(text)}
               />
@@ -94,9 +93,9 @@ const Music = (props) => {
               <Button 
                 text="Search!"
                 onPress={() => navigation.navigate('MusicDetail', {value})}
-                colorborder={colors.white}
+                colorborder={colors.music.white}
                 colorback='transparent'
-                colortext={colors.white}
+                colortext={colors.music.white}
                 palette='colors'
               />
             </View>

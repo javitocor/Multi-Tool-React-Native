@@ -37,3 +37,28 @@ export const chuck = {
   white: '#FFFFFF',
   blue: '#3C3B6E',
 };
+
+export const music = {
+  white: 'white',
+  border: '#E2E2E2',
+  text: '#343434',
+  blue: '#28333D',
+  textLight: '#797979',
+  offWhite: '#F0F0F0',
+  black: 'black',
+  yellow: '#FFCA1C',
+  yellow2: 'rgba(255,202,28,0.38)',
+  grey:'grey',
+  brown: 'brown',
+  green: '#2A5D12',
+  pink: 'pink',
+  purple: 'purple',
+  red: '#C93A3A',
+};
+
+export const shows = {
+  orange: '#E78200',
+  blue: '#1F3D57',
+  white: '#FFFFFF',
+  grey: 'grey',
+};
