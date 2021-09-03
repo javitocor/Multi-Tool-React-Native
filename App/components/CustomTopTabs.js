@@ -1,10 +1,26 @@
+/* eslint-disable no-nested-ternary */
 import React from 'react';
-import { Animated, View, TouchableOpacity } from 'react-native';
+import { Animated, View, TouchableOpacity, Dimensions, StyleSheet } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import * as colors from '../constants/colors';
 
+const screen = Dimensions.get('window');
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignContent: 'center',
+    height: 56,
+    width: '100%',
+    paddingHorizontal: 16,
+  },
+  content: {
+    flex: 1,
+  }
+})
 function CustomTopTabs({ state, descriptors, navigation, position }) {
   return (
-    <View style={{ flexDirection: 'row' }}>
+    <View style={styles.container}>
       {state.routes.map((route, index) => {
         const { options } = descriptors[route.key];
         const label =
@@ -24,7 +40,6 @@ function CustomTopTabs({ state, descriptors, navigation, position }) {
           });
 
           if (!isFocused && !event.defaultPrevented) {
-            // The `merge: true` option makes sure that the params inside the tab screen are preserved
             navigation.navigate({ name: route.name, merge: true });
           }
         };
@@ -50,7 +65,7 @@ function CustomTopTabs({ state, descriptors, navigation, position }) {
             testID={options.tabBarTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{ flex: 1 }}
+            style={styles.content}
           >
             <Animated.Text style={{ opacity }}>
               {label}
