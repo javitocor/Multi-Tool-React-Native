@@ -41,14 +41,14 @@ Additional description about the project and its features.
 
 ### Usage
 To have this app on your pc, you need to:
-* [download](https://github.com/javitocor/Tool-Hub-React-Native/archive/main.zip) or clone this repo:
+* [download](https://github.com/javitocor/Multi-Tool-React-Native/archive/main.zip) or clone this repo:
   - Clone with SSH:
   ```
-    git@github.com:javitocor/Tool-Hub-React-Native.git
+    git@github.com:javitocor/Multi-Tool-React-Native.git
   ```
   - Clone with HTTPS
   ```
-    https://github.com/javitocor/Tool-Hub-React-Native.git
+    https://github.com/javitocor/Multi-Tool-React-Native.git
   ```
 
 * In the project directory, you can run:
@@ -69,7 +69,7 @@ To have this app on your pc, you need to:
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/javitocor/Tool-Hub-React-Native/issues).
+Feel free to check the [issues page](https://github.com/javitocor/Multi-Tool-React-Native/issues).
 
 ## Show your support
 
@@ -90,11 +90,11 @@ This project is [MIT](lic.url) licensed.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/javitocor/Tool-Hub-React-Native.svg?style=flat-square
-[contributors-url]: https://github.com/javitocor/Tool-Hub-React-Native/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/javitocor/Tool-Hub-React-Native.svg?style=flat-square
-[forks-url]: https://github.com/javitocor/Tool-Hub-React-Native/network/members
-[stars-shield]: https://img.shields.io/github/stars/javitocor/Tool-Hub-React-Native.svg?style=flat-square
-[stars-url]: https://github.com/javitocor/Tool-Hub-React-Native/stargazers
-[issues-shield]: https://img.shields.io/github/issues/javitocor/Tool-Hub-React-Native.svg?style=flat-square
-[issues-url]: https://github.com/javitocor/Tool-Hub-React-Native/issues
+[contributors-shield]: https://img.shields.io/github/contributors/javitocor/Multi-Tool-React-Native.svg?style=flat-square
+[contributors-url]: https://github.com/javitocor/Multi-Tool-React-Native/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/javitocor/Multi-Tool-React-Native.svg?style=flat-square
+[forks-url]: https://github.com/javitocor/Multi-Tool-React-Native/network/members
+[stars-shield]: https://img.shields.io/github/stars/javitocor/Multi-Tool-React-Native.svg?style=flat-square
+[stars-url]: https://github.com/javitocor/Multi-Tool-React-Native/stargazers
+[issues-shield]: https://img.shields.io/github/issues/javitocor/Multi-Tool-React-Native.svg?style=flat-square
+[issues-url]: https://github.com/javitocor/Multi-Tool-React-Native/issues
